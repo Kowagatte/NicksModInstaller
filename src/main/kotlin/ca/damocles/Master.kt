@@ -93,10 +93,10 @@ fun removeMods(playerSettings: PlayerSettings, installSettings: InstallationSett
         }
     }
     if(playerSettings.performanceMod.equals("optifabric", true)){
-        installSettings.optional["phosphor"]?.let { modsToRemove.add(it) }
-        installSettings.optional["sodium"]?.let { modsToRemove.add(it) }
+        installSettings.performance["phosphor"]?.let { modsToRemove.add(it) }
+        installSettings.performance["sodium"]?.let { modsToRemove.add(it) }
     }else{
-        installSettings.optional["optifabric"]?.let { modsToRemove.add(it) }
+        installSettings.performance["optifabric"]?.let { modsToRemove.add(it) }
     }
     for(fileName: String in modsToRemove){
         File("${Defaults.defaultMinecraftPath}\\mods\\$fileName").delete()
