@@ -97,6 +97,7 @@ fun removeMods(playerSettings: PlayerSettings, installSettings: InstallationSett
         installSettings.performance["sodium"]?.let { modsToRemove.add(it) }
     }else{
         installSettings.performance["optifabric"]?.let { modsToRemove.add(it) }
+        installSettings.performance["optifine"]?.let { modsToRemove.add(it) }
     }
     for(fileName: String in modsToRemove){
         File("${Defaults.defaultMinecraftPath}\\mods\\$fileName").delete()
