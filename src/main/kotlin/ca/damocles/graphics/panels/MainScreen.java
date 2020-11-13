@@ -5,14 +5,13 @@
 package ca.damocles.graphics.panels;
 
 import ca.damocles.Database;
-import ca.damocles.MasterKt;
-import ca.damocles.PlayerSettings;
+import ca.damocles.Install;
+import ca.damocles.settings.PlayerSettings;
 
 import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 import javax.swing.*;
 import javax.swing.GroupLayout;
 
@@ -32,7 +31,12 @@ public class MainScreen extends JPanel {
             }
         }
         if(!performanceMod.equalsIgnoreCase(comboBox2.getItemAt(0))){
-            MasterKt.install(new PlayerSettings(performanceMod, selectedMods), Database.INSTANCE.getVersion(version));
+            new Install(Database.INSTANCE.getVersion(version), new PlayerSettings(performanceMod, selectedMods))
+                    .windows()
+                    .deleteOldMods()
+                    .fabric()
+                    .installMods()
+                    .finish();
         }
     }
 
