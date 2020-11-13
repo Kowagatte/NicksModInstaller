@@ -72,7 +72,7 @@ class Install(val installSettings: InstallationSettings, val playerSettings: Pla
 
     fun installMods(): Install{
         for(mod in modsToInstall){
-            downloadFile("https://storage.googleapis.com/modfiles/${installSettings.version}/$mod.jar", "$directory\\mods\\$mod")
+            downloadFile("https://storage.googleapis.com/modfiles/${installSettings.version}/$mod", "$directory\\mods\\$mod")
         }
         return this
     }
